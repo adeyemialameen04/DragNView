@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     gap: 1.6rem;
+    overflow-x: hidden;
 }
 
 .image__item {
