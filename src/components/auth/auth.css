@@ -44,4 +44,11 @@
     max-width: 12.5rem;
     align-self: flex-end;
     padding-inline: 1rem;
+    cursor: pointer;
+}
+
+@media (min-width:780px) {
+    .auth__container {
+        max-width: 35rem;
+    }
 }

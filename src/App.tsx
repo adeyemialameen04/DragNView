@@ -1,12 +1,18 @@
+import { useContext, useEffect } from "react";
 import Auth from "./components/auth/Auth";
-import { UserContextProvider } from "./utils/context/UserContext";
+import Home from "./components/home/Home";
+import { UserContext } from "./utils/context/UserContext";
 
 function App() {
+  const { currentUser } = useContext(UserContext);
+
+  useEffect(() => {
+    console.log(currentUser);
+  }, [currentUser]);
+
   return (
     <>
-      <UserContextProvider>
-        <Auth />
-      </UserContextProvider>
+      <>{currentUser ? <Home /> : <Auth />}</>
     </>
   );
 }
