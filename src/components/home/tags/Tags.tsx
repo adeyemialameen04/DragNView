@@ -25,16 +25,18 @@ const TagItem = ({ tagName, selectedTag, handleTagClick }: TagItemProps) => {
 
 const Tags = ({ selectedTag, handleTagClick }: TagsProps) => {
   return (
-    <div>
-      {tags.map((tag) => (
-        <TagItem
-          key={tag.id}
-          tagName={tag.tagName}
-          selectedTag={selectedTag}
-          handleTagClick={handleTagClick}
-        />
-      ))}
-    </div>
+    <aside>
+      <div className="container tags__container">
+        {tags.map((tag) => (
+          <TagItem
+            key={tag.id}
+            tagName={tag.tagName}
+            selectedTag={selectedTag}
+            handleTagClick={handleTagClick}
+          />
+        ))}
+      </div>
+    </aside>
   );
 };
 
