@@ -1,0 +1,17 @@
+.tags__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-block: 1rem;
+    margin-bottom: 1rem;
+}
+
+.tags__container button {
+    background-color: #eee;
+    cursor: pointer;
+    color: #767676;
+    border: none;
+    text-transform: capitalize;
+    padding-block: .3rem;
+    padding-inline: .6rem;
+}

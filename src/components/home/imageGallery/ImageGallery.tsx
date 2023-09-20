@@ -217,7 +217,7 @@ import { imagesData } from "../../../utils/data";
 import { imageData } from "../../../utils/interfaces";
 import "./imageGallery.css";
 import Skeleton from "react-loading-skeleton";
-import { useEffect, useState, useMemo, Suspense } from "react";
+import { useEffect, useState, useMemo } from "react";
 import "react-loading-skeleton/dist/skeleton.css";
 import { DndContext, closestCenter } from "@dnd-kit/core";
 import {
@@ -326,7 +326,6 @@ const ImageGallery = ({ selectedTag }: ImageGalleryProps) => {
       <DndContext collisionDetection={closestCenter} onDragEnd={onDragEnd}>
         <div className="container imageGallery__container">
           <SortableContext items={items} strategy={verticalListSortingStrategy}>
-            <Suspense fallback={<Skeleton />}></Suspense>
             {renderImages()}
           </SortableContext>
         </div>

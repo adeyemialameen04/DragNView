@@ -47,6 +47,8 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: 'Montserrat', sans-serif;
+  /* background-color: hsl(216, 28%, 7%); */
+  background-color: hsl(240, 100%, 98%);
 }
 
 /* A elements that don't have a class get default styles */

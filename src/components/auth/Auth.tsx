@@ -1,6 +1,7 @@
 import {
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
+  // signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import { useEffect, useState, useContext } from "react";
 import { auth } from "../../config/firebase";
@@ -38,7 +39,7 @@ const Auth = () => {
         case "auth/email-already-in-use":
           // Email is already in use, inform the user
           console.log("Email is already registered.");
-          await signInWithEmailAndPassword(auth, email, password);
+          // await signInWithEmailAndPassword(auth, email, password);
           break;
         case "auth/invalid-email":
           // Invalid email format
@@ -140,24 +141,24 @@ const Auth = () => {
   }, [currentUser]);
 
   // //* Signs Out users automatically when they leave the page
-  // useEffect(() => {
-  //   // Add an event listener for the "beforeunload" event
-  //   const handleUnload = async () => {
-  //     try {
-  //       await signOut(auth);
-  //       console.log("User signed out on page unload");
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
+  useEffect(() => {
+    // Add an event listener for the "beforeunload" event
+    const handleUnload = async () => {
+      try {
+        await signOut(auth);
+        console.log("User signed out on page unload");
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-  //   window.addEventListener("beforeunload", handleUnload);
+    window.addEventListener("beforeunload", handleUnload);
 
-  //   return () => {
-  //     // Remove the event listener when the component unmounts
-  //     window.removeEventListener("beforeunload", handleUnload);
-  //   };
-  // }, []);
+    return () => {
+      // Remove the event listener when the component unmounts
+      window.removeEventListener("beforeunload", handleUnload);
+    };
+  }, []);
 
   return (
     <main className="auth__main">
@@ -170,7 +171,7 @@ const Auth = () => {
               setEmail(e.target.value);
               clearErrorMessage();
             }}
-            type="text"
+            type="email"
             placeholder="Type your email here ..."
           />
           <input
